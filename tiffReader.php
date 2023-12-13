@@ -73,8 +73,8 @@ class TiffReader{
 		return $rgbd;
 	}
 	
-	function binary($x,$y){
-		return $this->RGB($x,$y)>0x808080 ? 0:1;
+	function binary($x,$y,$threshold=0x808080){
+		return $this->RGB($x,$y)>$threshold ? 0:1;
 	}
 }
 

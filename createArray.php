@@ -48,6 +48,9 @@ function create($o,$addr1,$addr2,$addr3,$binfile=0){
 					} elseif (0xa1ef==$addr+$l) {
 						// Exception. Cut the protruding from left side character.
 						if ($xx<WIDTH/12) $dot=0;
+					} elseif (0xa1f9<=$addr+$l && $addr+$l<=0xa1fe) {
+						// Exception. Different color threshold is used
+						$dot=$o->binary($x+$xx,$y+$yy,0xbdbdbd);
 					} elseif (0xa2e6==$addr+$l) {
 						// Exception. Cut the protruding from left side character.
 						if ($yy<HEIGHT/5) $dot=0;
